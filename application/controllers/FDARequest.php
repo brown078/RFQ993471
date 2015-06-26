@@ -23,6 +23,7 @@ class FDARequest extends CI_Controller {
 		$this->load->view('welcome_message');
 	}
         //TwOhEwWWk1eGlkFl8n1HHCn93bmJity6AZbQGHpj
+        //C:\Users\damon\Documents\NetBeansProjects\RFQ993471
         public function drugsearch($search)
         {
             //using fopen for no curl requirements, all FDA requests are get requests
