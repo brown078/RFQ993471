@@ -26,6 +26,8 @@ class FDARequest extends CI_Controller {
         //C:\Users\damon\Documents\NetBeansProjects\RFQ993471
         public function drugsearch($search)
         {
+            $data = "";
+            $data_array = array();
             //using fopen for no curl requirements, all FDA requests are get requests
             $data = file_get_contents('https://api.fda.gov/drug/label.json?api_key=TwOhEwWWk1eGlkFl8n1HHCn93bmJity6AZbQGHpj&search=openfda.brand_name:"'.$search.'"');
             //seperate the JSON request into array for results review
@@ -37,6 +39,8 @@ class FDARequest extends CI_Controller {
                 //seperate the JSON request into array for results review
                 $data_array  = json_decode($data);
             }
+            
+            echo trim($data);
            
         }
         
