@@ -29,17 +29,15 @@ class FDARequest extends CI_Controller {
             //using fopen for no curl requirements, all FDA requests are get requests
             $data = file_get_contents('https://api.fda.gov/drug/label.json?api_key=TwOhEwWWk1eGlkFl8n1HHCn93bmJity6AZbQGHpj&search=openfda.brand_name:"'.$search.'"');
             //seperate the JSON request into array for results review
-            $data  = json_decode($data);
-            if($data->error){
+            $data_array  = json_decode($data);
+            if(isset($data->error))
+            {
                 //search generic drug information
                 $data = file_get_contents('https://api.fda.gov/drug/label.json?api_key=TwOhEwWWk1eGlkFl8n1HHCn93bmJity6AZbQGHpj&search=openfda.generic_name:"'.$search.'"');
                 //seperate the JSON request into array for results review
-                $data  = json_decode($data);
+                $data_array  = json_decode($data);
             }
-            echo"<pre>";
-            print_r($data);
-            echo"</pre>";
-            
+           
         }
         
         
