@@ -22,4 +22,16 @@ class Request extends CI_Controller {
 	{
 		$this->load->view('welcome_message');
 	}
+        //TwOhEwWWk1eGlkFl8n1HHCn93bmJity6AZbQGHpj
+        public function drugsearch($search)
+        {
+            //using fopen for no curl requirements, all FDA requests are get requests
+            $data = file_get_contents("https://api.fda.gov/drug/event.json?api_key=TwOhEwWWk1eGlkFl8n1HHCn93bmJity6AZbQGHpj&patient.drug.openfda.pharm_class_epc:\"nonsteroidal+anti-inflammatory+drug\"&count=patient.reaction.reactionmeddrapt.exac");
+            echo $data;
+            
+            
+            
+        }
+        
+        
 }
