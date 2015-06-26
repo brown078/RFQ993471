@@ -26,6 +26,8 @@ class FDARequest extends CI_Controller {
         //C:\Users\damon\Documents\NetBeansProjects\RFQ993471
         public function drugsearch($search)
         {
+            ///implicitly remove error reporting can be changed to 1 to turn on
+            error_reporting(0);
             $data = "";
             $data_array = array();
             //using fopen for no curl requirements, all FDA requests are get requests
