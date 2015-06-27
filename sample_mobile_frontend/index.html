@@ -1,27 +1,126 @@
 <!doctype html>
 <html>
 <head>
-    <title>My Page</title>
+    <title>Drug Data Search</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
     <script src="https://code.jquery.com/jquery-1.8.2.min.js"></script>
-    <script src="https://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 </head>
 <body>
     <div data-role="page">
  
         <div data-role="header">
-            <h1>My Title</h1>
+            <h1>Drug Data Search</h1>
         </div><!-- /header -->
  
         <div data-role="content">
-            <p>Hello world</p>
+            <div class="ui-body ui-body-a"><p style='font-size:.7em'><p>This is a demo HTML5 and jQuery Mobile application to connect and display results pulled from the open.fda.gov API and dataset.  Please enter a medicine name is the search bar below to receive all drug information.</p></div>
         </div><!-- /content -->
- 
-        <div data-role="footer">
-            <h4>My Footer</h4>
-        </div><!-- /footer -->
+        <div data-role="fieldcontain" style="text-align:center">
+                
+            <input type="search" name="search-2" id="search-2" value="" placeholder="Enter medication name"  data-theme="b"/>
+            <a href="#results_page" data-role="button" data-icon="search" data-inline="true">Search Medication Database</a>
+        </div>
+        
+        
+        
  
     </div><!-- /page -->
+     <div data-role="page" id="results_page">
+ 
+        <div data-role="header">
+            <h1 id="results_header">Results</h1>
+        </div><!-- /header -->
+ 
+        <div data-role="content">
+            <div id="result_info"></div>
+        </div><!-- /content -->
+        
+        
+      
+    </div><!-- /page -->
+    <script type="text/javascript">
+            
+        $( '#results_page' ).live( 'pageshow',function(event){
+                var name = $("#search-2").val();
+                var str = "";
+                $.mobile.loading( "show" );
+                $.ajax({
+                        url: "http://rfq993471.technicate.com/RFQ993471/index.php/FDARequest/drugsearch/"+name,
+                        // Tell jQuery we're expecting JSONP
+                        dataType: "jsonp",
+                        jsonpCallback: 'callback',
+                        type: "GET",
+                        // Work with the response
+                        success: function( data ) {
+                            
+                            if(data.results)
+                            {
+                                 str  += "<div class=\"ui-bar ui-bar-a\"><h2>"+data.results[0].openfda.brand_name[0] +"</h2></div>"; 
+                                 if(data.results[0].purpose)
+                                    {
+                                          str  += "<div class=\"ui-corner-all custom-corners\"><div class=\"ui-bar ui-bar-a\"><h3>Purpose</h3></div><div class=\"ui-body ui-body-a\"><p style='font-size:.7em'>"+data.results[0].purpose+"</p></div></div>";  
+                                    }
+                                if(data.results[0].active_ingredient_table)
+                                    {
+                                          str  += "<div class=\"ui-corner-all custom-corners\"><div class=\"ui-bar ui-bar-a\"><h3>Active Ingredients</h3></div><div class=\"ui-body ui-body-a\"><p style='font-size:.7em'>"+data.results[0].active_ingredient_table+"</p></div></div>";  
+                                    }
+                                else if(data.results[0].active_ingredient)
+                                {
+                                    
+                                    str  += "<div class=\"ui-corner-all custom-corners\"><div class=\"ui-bar ui-bar-a\"><h3>Active Ingredients</h3></div><div class=\"ui-body ui-body-a\"><p style='font-size:.7em'>"+data.results[0].active_ingredient+"</p></div></div>";  
+                                    
+                                }
+                                if(data.results[0].dosage_and_administration)
+                                    {
+                                          str  += "<div class=\"ui-corner-all custom-corners\"><div class=\"ui-bar ui-bar-a\"><h3>Doses & Administration</h3></div><div class=\"ui-body ui-body-a\"><p style='font-size:.7em'>"+data.results[0].dosage_and_administration+"</p></div></div>";          
+                                    } 
+                                if(data.results[0].warnings)
+                                    {
+                                          str  += "<div class=\"ui-corner-all custom-corners\"><div class=\"ui-bar ui-bar-a\"><h3>Warnings</h3></div><div class=\"ui-body ui-body-a\"><p style='font-size:.7em'>"+data.results[0].warnings+"</p></div></div>";          
+                                    } 
+                                if(data.results[0].keep_out_of_reach_of_children)
+                                    {
+                                          str  += "<div class=\"ui-corner-all custom-corners\"><div class=\"ui-bar ui-bar-a\"><h3>Child Warnings</h3></div><div class=\"ui-body ui-body-a\"><p style='font-size:.7em'>"+data.results[0].keep_out_of_reach_of_children+"</p></div></div>";          
+                                    }  
+                                if(data.results[0].do_not_use)
+                                    {
+                                          str  += "<div class=\"ui-corner-all custom-corners\"><div class=\"ui-bar ui-bar-a\"><h3>Do not use if ...</h3></div><div class=\"ui-body ui-body-a\"><p style='font-size:.7em'>"+data.results[0].do_not_use+"</p></div></div>";          
+                                    }   
+                                if(data.results[0].ask_a_doctor)
+                                    {
+                                          str  += "<div class=\"ui-corner-all custom-corners\"><div class=\"ui-bar ui-bar-a\"><h3>Ask A Doctor</h3></div><div class=\"ui-body ui-body-a\"><p style='font-size:.7em'>"+data.results[0].ask_a_doctor+"</p></div></div>";          
+                                    }     
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                
+                                console.log(data.results[0]);
+                                
+                                
+                            }
+                            else
+                            {
+                                
+                                str = "Sorry, no results found";
+                            }
+                             $("#result_info").html(str);
+                            //var res = $.parseJSON(response);
+                             // server response
+                        }
+                    });
+                
+                
+              
+                $('#results_header').text("Results for " +name);
+                $.mobile.loading( "hide" );
+          });
+
+    </script> 
 </body>
+
 </html>
