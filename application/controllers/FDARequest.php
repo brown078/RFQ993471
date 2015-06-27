@@ -18,7 +18,7 @@ class FDARequest extends CI_Controller {
         {
 			$this->load->model('fda_model');
                         
-                        $this->output->set_content_type('application/json')->set_output($this->fda_model->search($search));
+                        echo "callback(".$this->fda_model->search($search).")";
 
         }
         
