@@ -14,7 +14,7 @@ class FDARequest extends CI_Controller {
 		$this->load->view('welcome_message');
 	}
        
-        public function drugsearch($search)
+        public function drugsearch($search = null)
         {
                         error_reporting(0);// allow for JSON errors only
                         //if no search term immediatelly error
