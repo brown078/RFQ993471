@@ -1,4 +1,10 @@
-# Drug search RESTFul interface and sample HTML5 Mobile Application
+# Drug Search RESTFul Interface and Sample HTML5 Mobile Application
+##Prototype URLS
+###Responsive HTML Sample Prototype
+http://rfq993471.technicate.com/RFQ993471/sample_mobile_frontend
+###Web Service Endpoint
+http://rfq993471.technicate.com/RFQ993471/index.php/FDARequest/drugsearch/zantac
+
 ##Description
 Technicate Solution's Drug Search is written in PHP5 and the CodeIgnitor 3.0 MVC based framework.  
 The web service endpoint serves as a prototype platform for connecting to the http://open.fda.gov API and datasets to pull single descriptions of medications based on a generic or brand name openfda search term.  It includes a sample MySQL database schema to cache these results coming from the FDA into.  This would minimize the amount of requests set to an external system, such as open.fda.gov.  
