@@ -31,9 +31,7 @@
         <div data-role="content">
             <div id="result_info"></div>
         </div><!-- /content -->
-        
-        
-      
+
     </div><!-- /page -->
     <script type="text/javascript">
             
@@ -115,8 +113,10 @@
                     });
                 
                 
-              
+                if(name == ''){$('#results_header').text("Search term empty");}
+                else{               
                 $('#results_header').text("Results for " +name);
+                  }
                 $.mobile.loading( "hide" );
           });
       
