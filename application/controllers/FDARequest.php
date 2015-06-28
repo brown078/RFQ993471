@@ -16,11 +16,11 @@ class FDARequest extends CI_Controller {
        
         public function drugsearch($search)
         {
-			$this->load->model('fda_model');
+                        error_reporting(0);// allow for JSON errors only
                         //if no search term immediatelly error
                         if($search)
                         {
-                        
+                        $this->load->model('fda_model');
                         echo "callback(".$this->fda_model->search($search).");";
                         }
                         else
