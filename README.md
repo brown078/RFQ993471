@@ -10,8 +10,9 @@ Technicate used the human centered approach of inspiration, idea & implementatio
 
 Technicate Solution's Drug Search is written in PHP5 and the CodeIgnitor 3.0 MVC based framework.  
 The web service endpoint serves as a prototype platform for connecting to the http://open.fda.gov API and datasets to pull single descriptions of medications based on a generic or brand name openfda search term.  It includes a sample MySQL database schema to cache these results coming from the FDA into.  This would minimize the amount of requests set to an external system, such as open.fda.gov.  
+
 This application can be easily served on a cloud VPS using a standard Linux, Apache2, PHP5 and MySQL (LAMP) instance.  It includes a sample responsive HTML based web site and mobile site, written using JQuery and JQuery Mobile, as an example application that would use this caching system. 
-##Technologies Used
+##Development and Database Technologies Used
 - PHP5 http://www.php.net
 - CodeIgnitor 3.0 Framework (Included in repository) http://www.codeigniter.com/
 - MySQL 5 http://dev.mysql.com/
