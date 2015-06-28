@@ -66,24 +66,38 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</style>
 </head>
 <body>
+    As seen on <a href="https://github.com/brown078/RFQ993471"> https://github.com/brown078/RFQ993471 </a> please go there to review the code
+<article class="markdown-body entry-content" itemprop="mainContentOfPage"><h1><a id="user-content-drug-search-restful-interface-and-sample-html5-mobile-application" class="anchor" href="#drug-search-restful-interface-and-sample-html5-mobile-application" aria-hidden="true"><span class="octicon octicon-link"></span></a>Drug Search RESTFul Interface and Sample HTML5 Mobile Application</h1>
 
-<div id="container">
-	<h1>Welcome to CodeIgniter!</h1>
+<h2><a id="user-content-prototype-urls" class="anchor" href="#prototype-urls" aria-hidden="true"><span class="octicon octicon-link"></span></a>Prototype URLS</h2>
 
-	<div id="body">
-		<p>The page you are looking at is being generated dynamically by CodeIgniter.</p>
+<h3><a id="user-content-responsive-html-sample-prototype" class="anchor" href="#responsive-html-sample-prototype" aria-hidden="true"><span class="octicon octicon-link"></span></a>Responsive HTML Sample Prototype</h3>
 
-		<p>If you would like to edit this page you'll find it located at:</p>
-		<code>application/views/welcome_message.php</code>
+<p><a href="http://rfq993471.technicate.com/RFQ993471/sample_mobile_frontend">http://rfq993471.technicate.com/RFQ993471/sample_mobile_frontend</a></p>
 
-		<p>The corresponding controller for this page is found at:</p>
-		<code>application/controllers/Welcome.php</code>
+<h3><a id="user-content-web-service-endpoint-jsonp-callback-output" class="anchor" href="#web-service-endpoint-jsonp-callback-output" aria-hidden="true"><span class="octicon octicon-link"></span></a>Web Service Endpoint (JSONP Callback output)</h3>
 
-		<p>If you are exploring CodeIgniter for the very first time, you should start by reading the <a href="user_guide/">User Guide</a>.</p>
-	</div>
+<p><a href="http://rfq993471.technicate.com/RFQ993471/index.php/FDARequest/drugsearch/zantac">http://rfq993471.technicate.com/RFQ993471/index.php/FDARequest/drugsearch/zantac</a></p>
 
-	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></p>
-</div>
+<h2><a id="user-content-description" class="anchor" href="#description" aria-hidden="true"><span class="octicon octicon-link"></span></a>Description</h2>
+
+<p>Technicate used the human centered approach of inspiration, idea &amp; implementation to develop this application.  We interviewed employees and others, 5 subjects, on the usefulness of a mobile or web application that provided all of the data the FDA has on a specific drug.  The feedback was very positive, such as, using it to find out proper dosage or warnings of medications prescribed.  Ideas included reading directions in the middle of the night without having to "fumble for them".  As a result, we had an idea phase (screenshots included) where we chose our technical approach (below) and implementation team.</p>
+
+<p>Technicate Solution's Drug Search is written in PHP5 and the CodeIgnitor 3.0 MVC based framework.<br>
+The web service endpoint serves as a prototype platform for connecting to the <a href="http://open.fda.gov">http://open.fda.gov</a> API and datasets to pull single descriptions of medications based on a generic or brand name openfda search term.  It includes a sample MySQL database schema to cache these results coming from the FDA into.  This would minimize the amount of requests set to an external system, such as open.fda.gov.<br>
+This application can be easily served on a cloud VPS using a standard Linux, Apache2, PHP5 and MySQL (LAMP) instance.  It includes a sample responsive HTML based web site and mobile site, written using JQuery and JQuery Mobile, as an example application that would use this caching system. </p>
+
+<h2><a id="user-content-technologies-used" class="anchor" href="#technologies-used" aria-hidden="true"><span class="octicon octicon-link"></span></a>Technologies Used</h2>
+
+<ul>
+<li>PHP5 <a href="http://www.php.net">http://www.php.net</a></li>
+<li>CodeIgnitor 3.0 Framework (Included in repository) <a href="http://www.codeigniter.com/">http://www.codeigniter.com/</a></li>
+<li>MySQL 5 <a href="http://dev.mysql.com/">http://dev.mysql.com/</a></li>
+<li>Apache2 <a href="http://www.apache.org">http://www.apache.org</a></li>
+<li>JQuery <a href="http://www.jquery.org">http://www.jquery.org</a></li>
+<li>JQuery Mobile <a href="http://jquerymobile.com/">http://jquerymobile.com/</a></li>
+</ul>
+</article>
 
 </body>
 </html>
