@@ -20,7 +20,7 @@
         <div data-role="fieldcontain" style="text-align:center">
                 
             <input type="search" name="search-2" id="search-2" value="" placeholder="Enter medication name"  data-theme="b"/>
-            <a href="#results_page" data-role="button" data-icon="search" data-inline="true">Search Medication Database</a>
+            <a href="#results_page" data-role="button" id="srchbtn" data-icon="search" data-inline="true">Search Medication Database</a>
         </div>
     </div>
      <div data-role="page" id="results_page">
@@ -119,6 +119,11 @@
                 $.mobile.loading( "hide" );
           });
       
+          $("#id_of_textbox").keyup(function(event){
+                if(event.keyCode == 13){
+                    $("#srchbtn").click();
+                }
+            });
 
     </script> 
 </body>
