@@ -28,10 +28,17 @@ This application can be easily served on a cloud VPS using a standard Linux, Apa
 - CodeIgnitor 3 (Included)
 
 ###Ubuntu/Debian based system installation procedure
-Run the following commands as root:
+Run the following commands as root (sudo):
 ```
 apt-get install php5 mysql-server apache2
 ```
+Download or clone this repository in the document root (usually /var/www/html).  It will be [document_root] below
+``` nano [document_root]/application/config/database.php ```
+Log into MySQL via command line or install phpmyadmin by "apy-get install phpmyadmin" and create the "fda" database.  Enter in your database and user credentials and save the file 
+
+``` mysql -u root -p fda < /[document_root]/cacheTable.sql ```
+ 
+No go to http://[ipaddress]/[endpoint] and make sure it worked.  You can also see the test application in [document_root]/sample_front_end
 
 
 
