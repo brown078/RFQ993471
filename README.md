@@ -20,4 +20,20 @@ This application can be easily served on a cloud VPS using a standard Linux, Apa
 - JQuery http://www.jquery.org
 - JQuery Mobile http://jquerymobile.com/
 
+##Installation Instructions
+###System requirements
+- MySQL 5+
+- PHP 5.3+
+- Apache 2+
+- CodeIgnitor 3 (Included)
+
+###Ubuntu/Debian based system installation procedure
+Run the following commands as root:
+```
+apt-get install php5 mysql-server apache2
+```
+
+
+
+
 
