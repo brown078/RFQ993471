@@ -34,7 +34,8 @@ apt-get install php5 mysql-server apache2
 ```
 Download or clone this repository in the document root (usually /var/www/html).  It will be [document_root] below
 ``` nano [document_root]/application/config/database.php ```
-Log into MySQL via command line or install phpmyadmin by "apy-get install phpmyadmin" and create the "fda" database.  Enter in your database and user credentials and save the file 
+
+Log into MySQL via command line or install phpmyadmin by "apt-get install phpmyadmin" and create the "fda" database.  Enter in your database and user credentials and save the file.
 
 ``` mysql -u root -p fda < /[document_root]/cacheTable.sql ```
  
